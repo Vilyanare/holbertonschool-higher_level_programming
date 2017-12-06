@@ -1,6 +1,11 @@
 #include "lists.h"
 #include <stdlib.h>
-
+/**
+ * insert_node - Insert a node in numeric order to a list
+ * @head: beggining of list
+ * @number: data to add to member n
+ * Return: Address to new node or NULL on failure
+ */
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *find = *head;
@@ -12,6 +17,8 @@ listint_t *insert_node(listint_t **head, int number)
 	temp->n = number;
 	temp->next = NULL;
 	if (head == NULL)
+		return (NULL);
+	if (*head == NULL)
 	{
 		*head = temp;
 		return (temp);
