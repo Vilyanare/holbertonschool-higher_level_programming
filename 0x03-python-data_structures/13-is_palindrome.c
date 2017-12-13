@@ -63,10 +63,14 @@ int is_palindrome(listint_t **head)
 	while (revfront->n == front->n)
 	{
 		if (revfront->oadd == front || front->next == revfront->oadd)
+			{
+			free_listintrev(revfront);
 			return (1);
+			}
 		revfront = revfront->next;
 		front = front->next;
 
 	}
+	free_listintrev(revfront);
 	return (0);
 }
