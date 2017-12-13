@@ -1,48 +1,33 @@
 #include "lists.h"
-/**
- * free_listintrev - frees a listint_t list
- * @head: pointer to list to be freed
- * Return: void
- */
-void free_listintrev(listintrev_t *head)
-{
-	listintrev_t *current;
 
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-}
 /**
  * revlist - reverse a listint_t list
  * @head: head of listint_t list
  * Return: address to head of reversed list
  */
-listintrev_t *revlist(listint_t *head)
+listint_t *revlist(listint_t *head)
 {
-	listintrev_t *rev = NULL, *temp = NULL;
+	listint_t *slow = head, *temp = NULL;
+	int x = 1;
 
+	while (slow)
+	{
+		slow = slow->next;
+		x++;
+	}
+	x /= 2;
+	for (; x > 0; x--)
+		head = head->next;
+	slow = head;
 	while (head)
 	{
-		temp = malloc(sizeof(listintrev_t));
-		if (temp == NULL)
-		{
-			if (rev)
-				free_listintrev(rev);
-			return (NULL);
-		}
-		temp->n = head->n;
-		temp->oadd = head;
-		if (rev)
-			temp->next = rev;
-		else
-			temp->next = NULL;
-		rev = temp;
-		head = head->next;
+		temp = head->next;
+		head->next = (x > 0) ? slow:NULL;
+		slow = head;
+		head = temp;
+		x++;
 	}
-	return (rev);
+	return (slow);
 }
 /**
  * is_palindrome - check to see if data in a linked list is a palindrome
@@ -51,26 +36,23 @@ listintrev_t *revlist(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listintrev_t *revfront = NULL;
-	listint_t *front = NULL;
+	listint_t *front = NULL, *back = NULL;
 
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
 	front = *head;
-	revfront = revlist(*head);
-	while (revfront->n == front->n)
+	back = revlist(*head);
+	if (back == NULL || front == NULL)
+		return (1);
+	while (back->n == front->n)
 	{
-		if (revfront->oadd == front || front->next == revfront->oadd)
-			{
-			free_listintrev(revfront);
+		if (back->next == NULL || front->next == NULL)
 			return (1);
-			}
-		revfront = revfront->next;
+		back = back->next;
 		front = front->next;
 
 	}
-	free_listintrev(revfront);
 	return (0);
 }
