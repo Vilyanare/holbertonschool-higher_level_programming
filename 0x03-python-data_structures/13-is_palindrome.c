@@ -6,14 +6,14 @@
  */
 void free_listintrev(listintrev_t *head)
 {
-    listintrev_t *current;
+	listintrev_t *current;
 
-    while (head != NULL)
-    {
-        current = head;
-        head = head->next;
-        free(current);
-    }
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
 }
 /**
  * revlist - reverse a listint_t list

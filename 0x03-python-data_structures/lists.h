@@ -12,8 +12,8 @@
  */
 typedef struct listint_s
 {
-    int n;
-    struct listint_s *next;
+	int n;
+	struct listint_s *next;
 } listint_t;
 /**
  * struct listintrev_s - singly linked list
@@ -25,9 +25,9 @@ typedef struct listint_s
  */
 typedef struct listintrev_s
 {
-    int n;
-    struct listintrev_s *next;
-    struct listint_s *oadd;
+	int n;
+	struct listintrev_s *next;
+	struct listint_s *oadd;
 } listintrev_t;
 
 size_t print_listint(const listint_t *h);
