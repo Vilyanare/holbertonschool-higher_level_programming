@@ -7,7 +7,6 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *front = NULL, *back = NULL, *backback = NULL;
-	int x = 1;
 
 	if (head)
 	{
@@ -16,10 +15,7 @@ int is_palindrome(listint_t **head)
 			front = *head;
 			back = *head;
 			while (back->next)
-				{
 				back = back->next;
-				x++;
-				}
 			backback = back;
 			if (back->n == front->n)
 			{
@@ -30,7 +26,7 @@ int is_palindrome(listint_t **head)
 					if (front->n == back->n)
 					{
 						front = front->next;
-						back = *head;
+						back = front;
 						while(back->next != backback)
 							back = back->next;
 						backback = back;
