@@ -21,20 +21,23 @@ int is_palindrome(listint_t **head)
 				x++;
 				}
 			backback = back;
-			while (1)
+			if (back->n == front->n)
 			{
-				if (front == back || front->next == back)
-					return (1);
-				if (front->n == back->n)
+				while (1)
 				{
-					front = front->next;
-					back = *head;
-					while(back->next != backback)
-						back = back->next;
-					backback = back;
+					if (front == back || front->next == back)
+						return (1);
+					if (front->n == back->n)
+					{
+						front = front->next;
+						back = *head;
+						while(back->next != backback)
+							back = back->next;
+						backback = back;
+					}
+					else
+						break;
 				}
-				else
-					break;
 			}
 		}
 	}
