@@ -38,7 +38,7 @@ class Square:
         """Sets position of Square"""
         a = value
         if type(a) != tuple or len(a) != 2 or a[0] < 0 or a[1] < 0:
-            raise TypeError("positon must be a tuple of 2 positive integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
 
