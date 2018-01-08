@@ -1,0 +1,69 @@
+The ``100-matrix_mul`` module
+=============================
+
+Using ``matrix_mul``
+--------------------
+
+Test file for the ``matrix_mul`` function:
+
+    >>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+Tests:
+
+Check standard input/output:
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[7, 10], [15, 22]]
+
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    [[13, 16]]
+
+Check type errors:
+
+    >>> print(matrix_mul('a', [[1]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+    >>> print(matrix_mul([[1]], 'a'))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+    >>> print(matrix_mul([1],[[1]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+    >>> print(matrix_mul([[1]],[1]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+    >>> print(matrix_mul([['a']], [[1]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+    >>> print(matrix_mul([[1]], [['a']]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b should contain only integers or floats
+
+Check non rectangular matrices:
+
+    >>> print(matrix_mul([[1, 2],[1,2,3]], [[1,2],[1,2]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must should be of the same size
+
+    >>> print(matrix_mul([[1,2],[1,2]], [[1,2],[1,2,3]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must should be of the same size
+
+Check invalid size:
+
+    >>> print(matrix_mul([[1,2,3],[2,3,4]],[[1,2,3],[1,2,3]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied
