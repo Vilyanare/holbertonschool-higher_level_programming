@@ -1,0 +1,46 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+Test file for ``add_integer`` function:
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Tests:
+
+Check n plus n where n = 0 through 5:
+
+    >>> [add_integer(n, n) for n in range(6)]
+    [0, 2, 4, 6, 8, 10]
+
+Check negative plus a positive:
+
+    >>> add_integer(-3, 1)
+    -2
+
+Check float plus an integer:
+
+    >>> add_integer(3.7, 2)
+    5
+
+Wrong type in a position:
+
+    >>> add_integer('a', 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Wrong type in b position:
+
+    >>> add_integer(1, 'a')
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Check return type:
+
+    >>> a = add_integer(3.0, 2.5)
+
+    >>> type(a)
+    <class 'int'>
