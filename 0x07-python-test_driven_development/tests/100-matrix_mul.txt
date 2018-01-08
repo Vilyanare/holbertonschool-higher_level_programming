@@ -67,3 +67,15 @@ Check invalid size:
     Traceback (most recent call last):
         ...
     ValueError: m_a and m_b can't be multiplied
+
+Check empty lists:
+
+    >>> print(matrix_mul([], [[1]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+    >>> print(matrix_mul([[1]], []))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
