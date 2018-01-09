@@ -22,7 +22,7 @@ class Rectangle:
             for i in range(self.height):
                 for _ in range(self.width):
                     new_str += "{}".format(self.print_symbol)
-                if i != self.height -1:
+                if i != self.height - 1:
                     new_str += '\n'
         return new_str
 
@@ -81,6 +81,7 @@ class Rectangle:
             return 0
         else:
             return (self.width * 2) + (self.height * 2)
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Compare the area of two Rectangles and returns the
