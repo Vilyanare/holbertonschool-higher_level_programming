@@ -1,0 +1,38 @@
+The ``7-base_geometry`` module
+==============================
+
+Using ``BaseGeometry``
+---------------------
+
+Test file for ``MyList`` class:
+    >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+
+
+Tests:
+
+    >>> bg = BaseGeometry()
+
+Check TypeError:
+
+    >>> bg.integer_validator("name", 5.1)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+Check ValueError:
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0

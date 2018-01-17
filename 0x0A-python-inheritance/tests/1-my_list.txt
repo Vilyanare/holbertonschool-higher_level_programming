@@ -1,0 +1,39 @@
+The ``1-my_list`` module
+============================
+
+Using ``MyList``
+---------------------
+
+Test file for ``MyList`` class:
+    >>> MyList = __import__("1-my_list").MyList
+
+
+
+Tests:
+
+Check that list was sorted:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Sort positive and negatvie numbers:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(-3)
+    >>> my_list.append(-2)
+
+    >>> my_list.print_sorted()
+    [-3, -2, 1, 2, 3]
+
+Check that list was copied and not overwritten:
+
+    >>> print(my_list)
+    [1, 2, 3, -3, -2]
