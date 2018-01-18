@@ -16,7 +16,7 @@ class Student:
         if attrs is not none only return keys from attrs
         """
         temp = {}
-        if attrs != None:
+        if attrs is not None:
             for k, v in self.__dict__.items():
                 if k in attrs:
                     temp[k] = v
