@@ -52,33 +52,39 @@ class TestSquareClass(unittest.TestCase):
 
     def test_size_type_error(self):
         """Check type error for size"""
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as err:
             Square("1")
+        self.assertEqual(str(err.exception), "width must be an integer")
 
     def test_x_type_error(self):
         """Check type error for x """
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as err:
             Square(1, '2')
+        self.assertEqual(str(err.exception), "x must be an integer")
 
     def test_y_type_error(self):
         """Check type error for y"""
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as err:
             Square(1, 2, '3')
+        self.assertEqual(str(err.exception), "y must be an integer")
 
     def test_size_value_error(self):
         """Check value error for size"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as err:
             Square(0)
+        self.assertEqual(str(err.exception), "width must be > 0")
 
     def test_x_value_error(self):
         """Check value error for x"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as err:
             Square(1, -1)
+        self.assertEqual(str(err.exception), "x must be >= 0")
 
     def test_y_value_error(self):
         """Check value error for y"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as err:
             Square(1, 1, -1)
+        self.assertEqual(str(err.exception), "y must be >= 0")
 
     def test_error_message_order(self):
         """Check error message order (type before value)"""
