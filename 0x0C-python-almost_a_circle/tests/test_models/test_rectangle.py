@@ -14,6 +14,16 @@ class TestRectangleClass(unittest.TestCase):
         """Check rectangle inherits from Base"""
         self.assertEqual(issubclass(Rectangle, Base), True)
 
+    def test_rectangle_id(self):
+        """Check correct ID gets assigned to rectangles"""
+        Base._Base__nb_objects = 0
+        a = Rectangle(1, 2)
+        self.assertEqual(a.id, 1)
+        a = Rectangle(1, 2)
+        self.assertEqual(a.id, 2)
+        a = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(a.id, 5)
+
     def test_width_attribute_Rectangle(self):
         """Check width is assigned properly"""
         a = Rectangle(1, 2, 3, 4, 5)
