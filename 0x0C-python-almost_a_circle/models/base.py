@@ -10,7 +10,7 @@ class Base:
     Attributes
     @__n_objects: Keeps track of how many instances are created
     """
-    __nb_objects=0
+    __nb_objects = 0
 
     def __init__(self, id=None):
         """Instantiation method for Base class"""
@@ -32,8 +32,8 @@ class Base:
     def save_to_file(cls, list_objs):
         """save json representation of a class to a file"""
         info = Base.to_json_string([cls.to_dictionary(v) for v in list_objs])
-        with open("{}.json".format(cls.__name__), 'w',
-        encoding="utf-8") as f:
+        with open("{}.json".format(
+                cls.__name__), 'w', encoding="utf-8") as f:
             f.write(info)
 
     @staticmethod
@@ -49,7 +49,7 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance of a sub class with attributes set to
         passed values"""
-        temp = cls(1,1)
+        temp = cls(1, 1)
         temp.update(**dictionary)
         return temp
 
@@ -59,6 +59,7 @@ class Base:
         json encoded string held in a file"""
         try:
             with open("{}.json".format(cls.__name__), encoding='utf-8') as f:
-                return [cls.create(**i) for i in Base.from_json_string(f.read())]
+                return [cls.create(
+                    **i) for i in Base.from_json_string(f.read())]
         except FileNotFoundError:
             return []

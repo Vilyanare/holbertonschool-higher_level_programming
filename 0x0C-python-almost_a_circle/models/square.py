@@ -21,7 +21,7 @@ class Square(Rectangle):
     def __str__(self):
         """Return an informal represenation of Square"""
         return "[Square] ({}) {}/{} - {}".format(
-        self.id, self.x, self.y, self.size)
+            self.id, self.x, self.y, self.size)
 
     def update(self, *args, **kwargs):
         """Assigns argument to each attribute
@@ -51,7 +51,7 @@ class Square(Rectangle):
         return self.height
 
     @size.setter
-    def size(self,value):
+    def size(self, value):
         """setter for size attribute"""
         self.width = value
         self.height = value

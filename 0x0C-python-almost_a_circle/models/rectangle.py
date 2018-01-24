@@ -25,7 +25,7 @@ class Rectangle(Base):
     def __str__(self):
         """Return an informal description of Rectangle class"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-        self.id, self.x, self.y, self.width, self.height)
+            self.id, self.x, self.y, self.width, self.height)
 
     def area(self):
         """Returns area of Rectangle"""
@@ -64,7 +64,7 @@ class Rectangle(Base):
         y
         """
         rep = {'id': self.id, 'width': self.width,
-         'height': self.height, 'x': self.x, 'y': self.y}
+               'height': self.height, 'x': self.x, 'y': self.y}
         return rep
 
     @property

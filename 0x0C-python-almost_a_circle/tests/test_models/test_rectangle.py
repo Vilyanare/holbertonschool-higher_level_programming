@@ -47,7 +47,7 @@ class TestRectangleClass(unittest.TestCase):
     def test_height_type_error_rectangle(self):
         """Check type error for height"""
         with self.assertRaises(TypeError):
-            Rectangle(1, '2' )
+            Rectangle(1, '2')
 
     def test_x_type_error_rectangle(self):
         """Check type error for x """
@@ -116,37 +116,37 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_update_method_with_args_id_rectangle(self):
         """Check update with *args (order id width height x y)"""
-        a = Rectangle(1, 2, 3, 4 ,5)
+        a = Rectangle(1, 2, 3, 4, 5)
         a.update(10)
         self.assertEqual(a.__str__(), "[Rectangle] (10) 3/4 - 1/2")
 
     def test_update_method_with_args_width_rectangle(self):
         """Check update with *args (order id width height x y)"""
-        a = Rectangle(1, 2, 3, 4 ,5)
+        a = Rectangle(1, 2, 3, 4, 5)
         a.update(10, 11)
         self.assertEqual(a.__str__(), "[Rectangle] (10) 3/4 - 11/2")
 
     def test_update_method_with_args_height_rectangle(self):
         """Check update with *args (order id width height x y)"""
-        a = Rectangle(1, 2, 3, 4 ,5)
+        a = Rectangle(1, 2, 3, 4, 5)
         a.update(10, 11, 12)
         self.assertEqual(a.__str__(), "[Rectangle] (10) 3/4 - 11/12")
 
     def test_update_method_with_args_x_rectangle(self):
         """Check update with *args (order id width height x y)"""
-        a = Rectangle(1, 2, 3, 4 ,5)
+        a = Rectangle(1, 2, 3, 4, 5)
         a.update(10, 11, 12, 13)
         self.assertEqual(a.__str__(), "[Rectangle] (10) 13/4 - 11/12")
 
     def test_update_method_with_args_y_rectangle(self):
         """Check update with *args (order id width height x y)"""
-        a = Rectangle(1, 2, 3, 4 ,5)
+        a = Rectangle(1, 2, 3, 4, 5)
         a.update(10, 11, 12, 13, 14)
         self.assertEqual(a.__str__(), "[Rectangle] (10) 13/14 - 11/12")
 
     def test_update_method_with_to0_many_args_rectangle(self):
         """Check update with more than 5 *args"""
-        a = Rectangle(1, 2, 3, 4 ,5)
+        a = Rectangle(1, 2, 3, 4, 5)
         a.update(10, 11, 12, 13, 14, 6, 7, 8)
         self.assertEqual(a.__str__(), "[Rectangle] (10) 13/14 - 11/12")
 
