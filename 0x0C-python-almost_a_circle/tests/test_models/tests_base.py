@@ -45,6 +45,15 @@ class TestBaseClass(unittest.TestCase):
             os.remove('./Rectangle.json')
         self.assertEqual(b, c)
 
+    def test_save_to_file_method_none(self):
+        """Check save_to_file method with none"""
+        Rectangle.save_to_file([])
+        c = '[]'
+        with open('Rectangle.json', encoding='utf-8') as f:
+            b = f.read()
+            os.remove('./Rectangle.json')
+        self.assertEqual(b, c)
+
     def test_from_json_string_method(self):
         """Check from_json_string method"""
         c = [{'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}]

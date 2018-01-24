@@ -31,7 +31,9 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """save json representation of a class to a file"""
-        info = Base.to_json_string([cls.to_dictionary(v) for v in list_objs])
+        info = '[]'
+        if list_objs:
+            info = Base.to_json_string([cls.to_dictionary(v) for v in list_objs])
         with open("{}.json".format(
                 cls.__name__), 'w', encoding="utf-8") as f:
             f.write(info)
