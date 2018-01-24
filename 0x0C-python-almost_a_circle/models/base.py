@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module holding the Base class"""
 import json
+import turtle
 
 
 class Base:
@@ -19,6 +20,25 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws squares and rectangles with turtle module"""
+        turtle.hideturtle()
+        turtle.speed(0)
+        new = list_rectangles + list_squares
+        for i in new:
+            turtle.up()
+            turtle.goto(i.x, i.y)
+            turtle.pd()
+            turtle.forward(i.width)
+            turtle.left(90)
+            turtle.forward(i.height)
+            turtle.left(90)
+            turtle.forward(i.width)
+            turtle.left(90)
+            turtle.forward(i.height)
+            turtle.left(90)
 
     @staticmethod
     def to_json_string(list_dictionaries):
