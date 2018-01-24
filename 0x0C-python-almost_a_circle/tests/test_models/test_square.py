@@ -15,6 +15,21 @@ class TestSquareClass(unittest.TestCase):
         """Check Square inherits from Base"""
         self.assertEqual(issubclass(Square, Rectangle), True)
 
+    def test_square_id(self):
+        """Check correct ID gets assigned to square"""
+        Base._Base__nb_objects = 0
+        a = Square(1)
+        self.assertEqual(a.id, 1)
+        a = Square(1)
+        self.assertEqual(a.id, 2)
+        a = Square(1, 2, 3, 4)
+        self.assertEqual(a.id, 4)
+
+    def test_square_no_attr(self):
+        """Check square when size isn't passed"""
+        with self.assertRaises(TypeError):
+            Square()
+
     def test_size_attribute_Square(self):
         """Check size is assigned properly"""
         a = Square(1, 2, 3, 4)

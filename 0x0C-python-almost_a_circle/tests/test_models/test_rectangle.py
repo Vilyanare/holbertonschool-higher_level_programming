@@ -24,6 +24,16 @@ class TestRectangleClass(unittest.TestCase):
         a = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(a.id, 5)
 
+    def test_rectangle_no_attr(self):
+        """Check rectangle when width and height aren't passed"""
+        with self.assertRaises(TypeError):
+            Rectangle()
+
+    def test_rectangle_one_attr(self):
+        """Check rectangle when height isn't passed"""
+        with self.assertRaises(TypeError):
+            Rectangle(1)
+
     def test_width_attribute_Rectangle(self):
         """Check width is assigned properly"""
         a = Rectangle(1, 2, 3, 4, 5)
