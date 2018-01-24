@@ -61,6 +61,12 @@ class TestBaseClass(unittest.TestCase):
         "id": 5, "x": 3, "y": 4}]')
         self.assertEqual(a, c)
 
+    def test_from_json_string_method_none(self):
+        """Check from_json_string method with None"""
+        c = []
+        a = Rectangle.from_json_string('[]')
+        self.assertEqual(a, c)
+
     def test_create_method(self):
         """Check create method for square and rectangle"""
         a = Rectangle(3, 5, 1, 2, 8)
