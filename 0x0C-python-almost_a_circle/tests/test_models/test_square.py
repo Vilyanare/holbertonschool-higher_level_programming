@@ -69,9 +69,15 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(str(err.exception), "y must be an integer")
 
     def test_size_value_error(self):
-        """Check value error for size"""
+        """Check value error for size with 0"""
         with self.assertRaises(ValueError) as err:
             Square(0)
+        self.assertEqual(str(err.exception), "width must be > 0")
+
+    def test_size_value_error_negative(self):
+        """Check value error for size with a negative number"""
+        with self.assertRaises(ValueError) as err:
+            Square(-1)
         self.assertEqual(str(err.exception), "width must be > 0")
 
     def test_x_value_error(self):
