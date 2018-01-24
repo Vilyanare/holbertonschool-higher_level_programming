@@ -4,6 +4,7 @@ import unittest
 from models.base import Base
 import json
 from models.rectangle import Rectangle
+from models.square import Square
 import os
 
 
@@ -35,18 +36,40 @@ class TestBaseClass(unittest.TestCase):
         testr = '[]'
         self.assertEqual(Base.to_json_string(test), testr)
 
+    def test_check_to_json_string_method_empty(self):
+        """Check to_json_string method when passing empty list"""
+        test = []
+        testr = '[]'
+        self.assertEqual(Base.to_json_string(test), testr)
+
     def test_save_to_file_method(self):
         """Check save_to_file method"""
         a = Rectangle(1, 2, 3, 4, 5)
+        d = Square(1, 2, 3, 4)
+        Square.save_to_file([d])
         Rectangle.save_to_file([a])
         c = [{'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}]
+        e = [{'id': 4, 'size': 1, 'x': 2, 'y': 3}]
         with open('Rectangle.json', encoding='utf-8') as f:
             b = json.loads(f.read())
             os.remove('./Rectangle.json')
+        with open('Square.json', encoding='utf-8') as f:
+            g = json.loads(f.read())
+            os.remove('./Square.json')
+        self.assertEqual(g, e)
         self.assertEqual(b, c)
 
     def test_save_to_file_method_none(self):
         """Check save_to_file method with none"""
+        Rectangle.save_to_file(None)
+        c = '[]'
+        with open('Rectangle.json', encoding='utf-8') as f:
+            b = f.read()
+            os.remove('./Rectangle.json')
+        self.assertEqual(b, c)
+
+    def test_save_to_file_method_empty(self):
+        """Check save_to_file method with empty list"""
         Rectangle.save_to_file([])
         c = '[]'
         with open('Rectangle.json', encoding='utf-8') as f:
@@ -64,7 +87,13 @@ class TestBaseClass(unittest.TestCase):
     def test_from_json_string_method_none(self):
         """Check from_json_string method with None"""
         c = []
-        a = Rectangle.from_json_string('[]')
+        a = Rectangle.from_json_string(None)
+        self.assertEqual(a, c)
+
+    def test_from_json_string_method_empty(self):
+        """Check from_json_string method with empty string"""
+        c = []
+        a = Rectangle.from_json_string('')
         self.assertEqual(a, c)
 
     def test_create_method(self):

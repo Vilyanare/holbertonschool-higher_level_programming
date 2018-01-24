@@ -44,7 +44,7 @@ class Base:
         """Returns a list of dictionaries and takes a
         json encoded list of dictionary strings"""
         new = []
-        if json_string is not None:
+        if json_string:
             new = json.loads(json_string)
         return new
 
@@ -52,7 +52,10 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance of a sub class with attributes set to
         passed values"""
-        temp = cls(1, 1)
+        if "size" in dictionary:
+            temp = cls(1)
+        else:
+            temp = cls(1, 1)
         temp.update(**dictionary)
         return temp
 
