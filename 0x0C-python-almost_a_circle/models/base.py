@@ -89,3 +89,39 @@ class Base:
                     **i) for i in Base.from_json_string(f.read())]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Turns a list of rectangles or squares into a CSV file"""
+        comma = False
+        attrs = ['id', 'size', 'x', 'y']
+        if cls.__name__ == 'Rectangle':
+            attrs = ['id', 'width', 'height', 'x', 'y']
+        with open("{}.csv".format(cls.__name__), "w", encoding='utf-8') as f:
+            for i in list_objs:
+                for x in attrs:
+                    if comma == True:
+                        f.write(",")
+                    comma = True
+                    f.write("{}".format(eval("i.{}".format(x))))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Creates a rectangle or square from a CSV file"""
+        ret = []
+        hold = {}
+        attrs = ['id', 'size', 'x', 'y']
+        count = 4
+        if cls.__name__ == 'Rectangle':
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            count = 5
+        with open('{}.csv'.format(cls.__name__), encoding='utf-8') as f:
+            val = f.read()
+        val = val.split(',')
+        val = [int(i) for i in val]
+        while val:
+            for n, v in enumerate(attrs):
+                hold[v] = val[n]
+            val = val[count:]
+            ret.append(cls.create(**hold))
+        return ret
