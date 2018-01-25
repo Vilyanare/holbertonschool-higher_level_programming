@@ -100,7 +100,7 @@ class Base:
         with open("{}.csv".format(cls.__name__), "w", encoding='utf-8') as f:
             for i in list_objs:
                 for x in attrs:
-                    if comma == True:
+                    if comma is True:
                         f.write(",")
                     comma = True
                     f.write("{}".format(eval("i.{}".format(x))))
