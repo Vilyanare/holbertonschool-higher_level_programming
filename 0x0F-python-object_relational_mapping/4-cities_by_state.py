@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries for cities and assigns state names by id from state table
+"""
 import MySQLdb
 from sys import argv
 

@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries states table for user provided state otherwise types "Not found"
+"""
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

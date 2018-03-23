@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Updates state with id=2 to the name "New Mexico"
+"""
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

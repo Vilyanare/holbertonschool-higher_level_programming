@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Returns a list of all entries in cities table and what states they are in
+"""
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

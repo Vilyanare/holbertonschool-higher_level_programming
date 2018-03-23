@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries states table for user provided state
+"""
 import MySQLdb
 from sys import argv
 

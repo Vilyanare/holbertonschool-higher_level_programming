@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries states table for all entries that start with N
+"""
 import MySQLdb
 from sys import argv
 

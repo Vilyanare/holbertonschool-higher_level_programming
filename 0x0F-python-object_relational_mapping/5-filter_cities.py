@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries for cities that match a user provided state
+"""
 import MySQLdb
 from sys import argv
 

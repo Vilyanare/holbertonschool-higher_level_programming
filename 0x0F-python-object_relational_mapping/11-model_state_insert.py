@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Adds a new entry to the states table
+"""
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Deletes all entries from state table that have an a in them
+"""
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

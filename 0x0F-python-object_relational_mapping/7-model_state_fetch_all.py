@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries states table for all entries
+"""
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

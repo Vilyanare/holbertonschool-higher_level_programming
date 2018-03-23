@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Queries states table for all entries by id, name column
+"""
 import MySQLdb
 from sys import argv
 
