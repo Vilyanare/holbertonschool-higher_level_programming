@@ -9,11 +9,12 @@ from sqlalchemy import create_engine
 from model_state import State
 from model_city import City
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-    argv[1], argv[2], argv[3]), pool_pre_ping=True)
-Session = sessionmaker(bind=engine)
-session = Session()
+if __name__ == "__main__":
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-for s, c in session.query(State, City).filter(
-        State.id == City.state_id).order_by(City.id):
-    print("{}: ({}) {}".format(s.name, c.id, c.name))
+    for s, c in session.query(State, City).filter(
+            State.id == City.state_id).order_by(City.id):
+        print("{}: ({}) {}".format(s.name, c.id, c.name))
