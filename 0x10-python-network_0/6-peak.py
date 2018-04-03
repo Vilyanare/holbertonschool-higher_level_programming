@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 '''
 holds the function find_peak
 '''
@@ -10,7 +10,7 @@ def find_peak(list_of_integers):
     '''
     new_list = list_of_integers
     while True:
-        half = len(new_list) / 2
+        half = int(len(new_list) / 2)
         pivot = new_list[half]
         if new_list[half - 1] < pivot > new_list[half + 1]:
             return pivot
