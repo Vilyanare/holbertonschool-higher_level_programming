@@ -11,6 +11,11 @@ if (lenArgs < 4) {
       secondHighest = max;
       max = parseInt(process.argv[i]);
     }
+    if (parseInt(process.argv[i]) > secondHighest) {
+      if (parseInt(process.argv[i]) < max){
+        secondHighest = parseInt(process.argv[i]);
+      }
+    }
   }
   console.log(secondHighest);
 }
